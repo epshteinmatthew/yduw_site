@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Young Democrats at the UW</title>
+    <style>
+        *{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            margin: 3rem;
+            margin-top: 1rem;
+        }
+        h1{
+            font-size: 5rem;
+        }
+
+        p{
+            font-size: 2rem;
+        }
+
+        .highlight {
+            color: #0565f4;  /* or any color */
+        }
+        .UW{
+            color: #7a027a;
+        }
+        hr {
+            border: none; /* Removes the default border */
+            height: 10px; /* Sets the height of the line */
+            background-color: #000000; /* Sets the color of the line */
+            width: 5rem;
+            margin: 0;
+            border-radius: 15px;
+        }
+        .button {
+            width: fit-content;
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            margin: 0.75rem 0.4rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #1a1a1a;
+            background: #ffffff;
+            border: 2px solid #1a1a1a;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .buttons{
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: start;
+            flex-direction: row;
+        }
+        @media (max-width: 768px) {
+            .buttons{
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+            }
+            h1 {
+                font-size: 4rem;
+            }
+            p{
+                font-size: 1.5rem;
+            }
+
+            .button {
+                width: fit-content;
+                display: inline-block;
+                padding: 0.75rem 2rem;
+                margin: 2.5rem 0.4rem;
+                font-size: 1.3rem;
+                font-weight: 500;
+                text-decoration: none;
+                color: #1a1a1a;
+                background: #ffffff;
+                border: 2px solid #1a1a1a;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Young <span class="highlight">Democrats</span> at the <span class="UW">UW</span></h1>
+<hr>
+<p>YDUW is a left-of-center umbrella for all students on the UW Seattle campus. We seek to promote youth involvement in liberal politics. We volunteer at the national, state, and local levels with campaigns and on advocacy issues, discuss current events at weekly meetings, and connect with other liberal RSOs for campus-wide actions! We are also connected with other political groups on campus, and we also are dual-chartered with College Democrats and Young Democrats so that we can work together to make the largest impact possible. Reach out or come to your first meeting this week to learn more!</p>
+<hr>
+<div class="buttons">
+<a href="#" class="button">Instagram</a>
+<a href="#" class="button">Whatsapp</a>
+<a href="#" class="button">HuskyLink</a>
+</div>
+</body>
+</html>
