@@ -13,12 +13,51 @@
             margin: 3rem;
             margin-top: 1rem;
         }
+        .poll-widget {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin: 1rem 0;
+        }
+
+        .poll-widget button {
+          padding: 6px 16px;
+          font-size: 2rem;
+          background: white;
+          border: 2px solid #9ca3af;
+          border-radius: 10rem;
+          cursor: pointer;
+          color: #000000;
+          transition: all 0.2s;
+        }
+
+        .poll-widget button:hover {
+          background: #f9fafb;
+        }
+
+        .poll-widget button.voted {
+          background: #000000;
+          color: white;
+          border-color: black;
+        }
         h1{
             font-size: 5rem;
+          margin-bottom: 0;
+        }
+        h2{
+          font-size: 3rem;
+          margin-bottom: 0;
+        }
+        .smaller{
+          margin: 0;
+          font-size: 1.5rem;
+          color: #888888;
         }
 
         p{
             font-size: 2rem;
+          color: #6e6c6c;
+          margin-top: 0.5rem;
         }
 
         .highlight {
@@ -29,9 +68,8 @@
         }
         hr {
             border: none; /* Removes the default border */
-            height: 10px; /* Sets the height of the line */
-            background-color: #000000; /* Sets the color of the line */
-            width: 5rem;
+            height: 5px; /* Sets the height of the line */
+            background-color: #b1b1b1; /* Sets the color of the line */
             margin: 0;
             border-radius: 15px;
         }
@@ -59,7 +97,7 @@
         }
 
         .buttons{
-            margin-top: 1.5rem;
+            margin: 0.5rem 0;
             display: flex;
             justify-content: start;
             flex-direction: row;
@@ -73,8 +111,11 @@
             h1 {
                 font-size: 4rem;
             }
+            h2{
+              font-size: 3rem;
+            }
             p{
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .button {
@@ -97,13 +138,42 @@
 </head>
 <body>
 <h1>Young <span class="highlight">Democrats</span> at the <span class="UW">UW</span></h1>
-<hr>
-<p>YDUW is a left-of-center umbrella for all students on the UW Seattle campus. We seek to promote youth involvement in liberal politics. We volunteer at the national, state, and local levels with campaigns and on advocacy issues, discuss current events at weekly meetings, and connect with other liberal RSOs for campus-wide actions! We are also connected with other political groups on campus, and we also are dual-chartered with College Democrats and Young Democrats so that we can work together to make the largest impact possible. Reach out or come to your first meeting this week to learn more!</p>
-<hr>
 <div class="buttons">
-<a href="#" class="button">Instagram</a>
-<a href="#" class="button">Whatsapp</a>
-<a href="#" class="button">HuskyLink</a>
+  <a href="www.instagram.com/youngdemocrats_uw/?hl=en" class="button">Instagram</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScNyxw-CZo2nyRK9L_j_whGhRt5z3KMfnXj22R_wSI9_rX9Og/viewform?usp=sharing&ouid=107633154945399825275" class="button">Whatsapp</a>
+  <a href="https://huskylink.washington.edu/organization/yduw" class="button">HuskyLink</a>
 </div>
+<p>YDUW is a left-of-center umbrella for all students on the UW Seattle campus. We seek to promote youth involvement in liberal politics. We volunteer at the national, state, and local levels with campaigns and on advocacy issues, discuss current events at weekly meetings, and connect with other liberal RSOs for campus-wide actions! We are also connected with other political groups on campus, and we also are dual-chartered with College Democrats and Young Democrats so that we can work together to make the largest impact possible. Reach out or come to your first meeting this week to learn more!</p>
+
+<h2>Will we see you at our next meeting?</h2>
+<div class="poll-widget">
+  <button id="yes-btn" onclick="vote('yes')">Yes</button>
+  <button id="no-btn" onclick="vote('no')">No</button>
+</div>
+<script>
+  let currentVote = null;
+
+  function vote(choice) {
+    const yesBtn = document.getElementById('yes-btn');
+    const noBtn = document.getElementById('no-btn');
+
+    // Remove voted class from both
+    yesBtn.classList.remove('voted');
+    noBtn.classList.remove('voted');
+
+    // Add voted class to selected button
+    if (choice === 'yes') {
+      yesBtn.classList.add('voted');
+    } else {
+      noBtn.classList.add('voted');
+    }
+
+    currentVote = choice;
+  }
+</script>
+<p class="smaller">Date: 11/18/2025</p>
+<p class="smaller">Time: 6:10p-7:10p</p>
+<p class="smaller">Location: Savery 166</p>
+<p class="smaller">Topic: Healthy Debate Workshop</p>
 </body>
 </html>
