@@ -162,8 +162,8 @@
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script>
   let currentVote = localStorage.getItem('currentVote');
-  const gun = Gun();
-  const counterRef = gun.get('myCounter');
+  const gun = Gun('https://gun-manhattan.herokuapp.com/gun');
+  const counterRef = gun.get('ydemsattendCounter');
   const countDisplay = document.getElementById('counter');
 
   // Listen for changes - now accessing the 'count' property
@@ -194,7 +194,7 @@
       });}
     } else {
       noBtn.classList.add('voted');
-      if(choice !== currentVote){
+      if(currentVote === 'yes'){
         counterRef.once(data => {
           const newValue = (data?.count || 0) - 1;
           counterRef.put({ count: newValue }); // ✅ Object with property
