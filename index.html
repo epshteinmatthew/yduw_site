@@ -162,7 +162,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script>
   let currentVote = localStorage.getItem('currentVote');
-  const gun = Gun("https://www.ydemsuw.org/db");
+  const gun = Gun();
   const counterRef = gun.get('myCounter');
   const countDisplay = document.getElementById('counter');
 
