@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Young Democrats at the UW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <style>
+
         *{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'IBM Plex Sans';
         }
         body{
             display: flex;
@@ -58,6 +62,7 @@
             font-size: 2rem;
           color: #6e6c6c;
           margin-top: 0.5rem;
+          font-style: italic;
         }
 
         .highlight {
@@ -114,9 +119,6 @@
             h2{
               font-size: 3rem;
             }
-            p{
-                font-size: 2.5rem;
-            }
 
             .button {
                 width: fit-content;
@@ -133,6 +135,7 @@
                 transition: all 0.3s ease;
                 cursor: pointer;
             }
+
         }
     </style>
 </head>
@@ -150,30 +153,58 @@
   <button id="yes-btn" onclick="vote('yes')">Yes</button>
   <button id="no-btn" onclick="vote('no')">No</button>
 </div>
+<p class="smaller" id="date">Date: 12/3/2025</p>
+<p class="smaller" id="time">Time: 6:10p-7:10p</p>
+<p class="smaller" id="location">Location: Savery 166</p>
+<p class="smaller" id="topic">Topic: TBD</p>
+<p class="smaller" id="counter"></p>
+
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script>
-  let currentVote = null;
+  let currentVote = localStorage.getItem('currentVote');
+  const gun = Gun();
+  const counterRef = gun.get('myCounter');
+  const countDisplay = document.getElementById('counter');
+
+  // Listen for changes - now accessing the 'count' property
+  counterRef.on(data => {
+    countDisplay.textContent = "RSVP'd: " + (data?.count !== undefined ? data.count : 0);
+  });
+  const yesBtn = document.getElementById('yes-btn');
+  const noBtn = document.getElementById('no-btn');
+  if(currentVote === 'yes'){
+    yesBtn.classList.add('voted');
+  } if(currentVote === 'no'){
+    noBtn.classList.add('voted');
+  }
 
   function vote(choice) {
     const yesBtn = document.getElementById('yes-btn');
     const noBtn = document.getElementById('no-btn');
 
-    // Remove voted class from both
     yesBtn.classList.remove('voted');
     noBtn.classList.remove('voted');
 
-    // Add voted class to selected button
     if (choice === 'yes') {
       yesBtn.classList.add('voted');
+      if(choice !== currentVote){
+      counterRef.once(data => {
+        const newValue = (data?.count || 0) + 1;
+        counterRef.put({ count: newValue }); // ✅ Object with property
+      });}
     } else {
       noBtn.classList.add('voted');
+      if(choice !== currentVote){
+        counterRef.once(data => {
+          const newValue = (data?.count || 0) - 1;
+          counterRef.put({ count: newValue }); // ✅ Object with property
+        });
+      }
     }
 
     currentVote = choice;
+    localStorage.setItem('currentVote', choice);
   }
 </script>
-<p class="smaller">Date: 11/18/2025</p>
-<p class="smaller">Time: 6:10p-7:10p</p>
-<p class="smaller">Location: Savery 166</p>
-<p class="smaller">Topic: Healthy Debate Workshop</p>
 </body>
 </html>
