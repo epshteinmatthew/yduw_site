@@ -162,7 +162,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script>
   let currentVote = localStorage.getItem('currentVote');
-  const gun = Gun('https://gun-manhattan.herokuapp.com/gun');
+  const gun = Gun('https://gun-relay-ydems.onrender.com/gun');
   const counterRef = gun.get('ydemsattendCounter');
   const countDisplay = document.getElementById('counter');
 
