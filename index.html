@@ -7,6 +7,79 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        font-family: system-ui, sans-serif;
+        background: #f5f5f3;
+      }
+
+      .cards-row {
+        margin-top: 1%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        width: 50%;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 0.5px solid rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-img-wrap {
+        aspect-ratio: 8.5 / 11;
+        overflow: hidden;
+        background: #ffffff;
+        flex-shrink: 0;
+      }
+
+      .card-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-body {
+        padding: 14px 16px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: min-content;
+      }
+
+      .card-title {
+        width: min-content;
+        font-size: 125%;
+        font-weight: 500;
+        color: #111;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .card-sub {
+        font-size: 12px;
+        color: #888;
+        margin: 0;
+      }
+
+      .card-tag {
+        margin-top: 8px;
+        display: inline-block;
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: #e6f1fb;
+        color: #185fa5;
+        width: fit-content;
+      }
 
         *{
             font-family: 'IBM Plex Sans';
@@ -21,7 +94,7 @@
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          margin: 1rem 0;
+          margin: 1% 0;
         }
 
         .poll-widget button {
@@ -153,11 +226,45 @@
   <button id="yes-btn" onclick="vote('yes')">Yes</button>
   <button id="no-btn" onclick="vote('no')">No</button>
 </div>
-<p class="smaller" id="date">Date: 2/25/2026</p>
+<p class="smaller" id="date">Date: 4/8/2026</p>
 <p class="smaller" id="time">Time: 6:00p-7:00p</p>
-<p class="smaller" id="location">Location: Savery 166</p>
-<p class="smaller" id="topic">Topic: Ed. Policy Discussion</p>
+<p class="smaller" id="location">Location: Savery 168</p>
+<p class="smaller" id="topic">Topic: ASUW Candidate Forum</p>
 <p class="smaller" id="counter"></p>
+
+<h2>Upcoming events:</h2>
+<div class="cards-row">
+
+  <div class="card">
+    <div class="card-img-wrap">
+      <img src="asuw.png" alt="Document One">
+    </div>
+    <div class="card-body">
+      <p class="card-title">April 8: ASUW candidate forum</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img-wrap">
+      <img src="wilson2.png" alt="Document Two">
+    </div>
+    <div class="card-body">
+      <p class="card-title">April 22: Mayor Wilson Q&A</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img-wrap">
+      <img src="" alt="TBD">
+    </div>
+    <div class="card-body">
+      <p class="card-title">TBD</p>
+    </div>
+  </div>
+
+</div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script>
