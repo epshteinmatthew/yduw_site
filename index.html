@@ -11,7 +11,6 @@
         margin: 0;
         padding: 2rem;
         font-family: system-ui, sans-serif;
-        background: #f5f5f3;
       }
 
 
@@ -26,7 +25,7 @@
 
       .card {
         background: #ffffff;
-        border: 0.5px solid rgba(0, 0, 0, 0.15);
+        border: 3.5px solid rgb(0, 0, 0);
         border-radius: 12px;
         overflow: hidden;
         display: flex;
@@ -104,21 +103,17 @@
           padding: 6px 16px;
           font-size: 2rem;
           background: white;
-          border: 2px solid #9ca3af;
+          border: 2px solid #1a1a1a;
           border-radius: 10rem;
           cursor: pointer;
           color: #000000;
           transition: all 0.2s;
         }
 
-        .poll-widget button:hover {
-          background: #f9fafb;
-        }
 
         .poll-widget button.voted {
           background: #000000;
           color: white;
-          border-color: black;
         }
         h1{
             font-size: 4.5rem;
@@ -164,7 +159,7 @@
             text-decoration: none;
             color: #1a1a1a;
             background: #ffffff;
-            border: 2px solid #1a1a1a;
+            border: 2px solid #000000;
             border-radius: 50px;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -188,7 +183,7 @@
           .cards-row{
             grid-template-rows: repeat(2, minmax(0, 10fr));
             grid-template-columns: repeat(2, minmax(0, 10fr));
-            gap: 1rem;
+            gap: 1.5rem;
             width: 110%;
             align-self: center;
           }
@@ -208,14 +203,14 @@
             }
             p{
               margin: 0;
-              text-align: center;
             }
             h2{
               font-size: 3rem;
               text-align: center;
             }
-            .poll-widget{
-              align-self: center;
+            .poll-text p{
+              text-align: center;
+              font-size: 2rem;
             }
 
             .buttons{
@@ -237,6 +232,14 @@
                 transition: all 0.3s ease;
                 cursor: pointer;
             }
+          .poll-widget{
+            align-self: center;
+            font-size: 3rem;
+          }
+          .poll-widget button{
+            width: 13rem;
+            font-size: 3rem;
+          }
 
         }
     </style>
@@ -255,11 +258,12 @@
   <button id="yes-btn" onclick="vote('yes')">Yes</button>
   <button id="no-btn" onclick="vote('no')">No</button>
 </div>
+<div class="poll-text">
 <p class="smaller" id="date">Date: 4/8/2026</p>
 <p class="smaller" id="time">Time: 6:00p-7:00p</p>
 <p class="smaller" id="location">Location: Savery 168</p>
 <p class="smaller" id="topic">Topic: ASUW Candidate Forum</p>
-<p class="smaller" id="counter"></p>
+<p class="smaller" id="counter"></p></div>
 
 <h2>Upcoming events:</h2>
 <div class="cards-row">
