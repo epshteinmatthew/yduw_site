@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Young Democrats at the UW</title>
@@ -14,6 +14,7 @@
         background: #f5f5f3;
       }
 
+
       .cards-row {
         margin-top: 1%;
         display: grid;
@@ -22,6 +23,7 @@
         width: 50%;
       }
 
+
       .card {
         background: #ffffff;
         border: 0.5px solid rgba(0, 0, 0, 0.15);
@@ -29,6 +31,7 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        align-items: center;
       }
 
       .card-img-wrap {
@@ -118,7 +121,7 @@
           border-color: black;
         }
         h1{
-            font-size: 5rem;
+            font-size: 4.5rem;
           margin-bottom: 0;
         }
         h2{
@@ -180,17 +183,33 @@
             justify-content: start;
             flex-direction: row;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1000px) {
+          .cards-row{
+            width: 100%;
+          }
+
+          .card-title{
+            font-size: 100%;
+          }
             .buttons{
                 display: flex;
                 justify-content: center;
                 flex-direction: row;
             }
             h1 {
-                font-size: 4rem;
+                text-align: center;
+                font-size: 5rem;
+                margin: 0;
+            }
+            p{
+              margin: 0;
             }
             h2{
               font-size: 3rem;
+            }
+
+            .buttons{
+              margin: 0;
             }
 
             .button {
@@ -198,7 +217,7 @@
                 display: inline-block;
                 padding: 0.75rem 2rem;
                 margin: 2.5rem 0.4rem;
-                font-size: 1.3rem;
+                font-size: 2.5rem;
                 font-weight: 500;
                 text-decoration: none;
                 color: #1a1a1a;
@@ -213,7 +232,7 @@
     </style>
 </head>
 <body>
-<h1>Young <span class="highlight">Democrats</span> at the <span class="UW">UW</span></h1>
+<h1 class="bigyduw">Young <span class="highlight">Democrats</span> at the <span class="UW">UW</span></h1>
 <div class="buttons">
   <a href="https://www.instagram.com/youngdemocrats_uw/?hl=en" class="button">Instagram</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScNyxw-CZo2nyRK9L_j_whGhRt5z3KMfnXj22R_wSI9_rX9Og/viewform?usp=sharing&ouid=107633154945399825275" class="button">Whatsapp</a>
@@ -270,7 +289,7 @@
 <script>
   let currentVote = localStorage.getItem('currentVote');
   const gun = Gun('https://gun-relay-ydems.onrender.com/gun');
-  const counterRef = gun.get('asuwCounter');
+  const counterRef = gun.get('rsvpNextMtg');
   const countDisplay = document.getElementById('counter');
 
   // Listen for changes - now accessing the 'count' property
